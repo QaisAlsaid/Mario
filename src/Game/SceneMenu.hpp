@@ -6,8 +6,10 @@ class SceneMenu : public Scene
 {
 public:
     SceneMenu(Engien* engien);
+    void update() override;
+
+private:
     void sRender()                       override;
     void sDoAction(const Action& action) override;
-    void update()                        override;
 };
 

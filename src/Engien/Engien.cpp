@@ -18,6 +18,11 @@ std::shared_ptr<Scene> Engien::currentScene(const std::string& scene_name)
     return m_scenes[scene_name];
 }
 
+Assets& Engien::getAssets()
+{
+    return m_assets;
+}
+
 void Engien::changeScene(const std::string& scene_name, std::shared_ptr<Scene> scene)
 {
     m_current_scene = scene_name;
@@ -44,8 +49,15 @@ void Engien::sEvent()
     }
 }
 
+
+void Engien::sUserInput()
+{
+
+}
+
+
 void Engien::update()
 {
     sEvent();
-    m_scenes[m_current_scene]->sRender();
+    m_scenes[m_current_scene]->update();
 }

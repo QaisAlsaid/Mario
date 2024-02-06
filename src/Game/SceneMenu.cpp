@@ -28,6 +28,6 @@ void SceneMenu::sDoAction(const Action& action)
 
 void SceneMenu::update()
 {
-    std::cout<<"or";
+    sRender();
 }
 
