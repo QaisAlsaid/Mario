@@ -13,9 +13,9 @@ void Engien::init(const std::string& file_name, std::string main_scene)
     changeScene(main_scene, std::make_shared<SceneMenu>(this));
 }
 
-std::shared_ptr<Scene> Engien::currentScene(const std::string& scene_name)
+std::shared_ptr<Scene> Engien::currentScene()
 {
-    return m_scenes[scene_name];
+    return m_scenes[m_current_scene];
 }
 
 Assets& Engien::getAssets()
@@ -42,18 +42,26 @@ void Engien::sEvent()
     sf::Event event;
     while(m_window.pollEvent(event))
     {
-        if(event.type == sf::Event::Closed)
+        switch(event.type)
         {
-            m_window.close();
+            case sf::Event::Closed:
+            {
+                m_window.close();
+                break;
+            }
+            case sf::Event::KeyPressed || sf::Event::KeyReleased :
+            {
+                if(currentScene()->getActionMap().find(event.key.code) != currentScene()->getActionMap().end())
+                {
+                    const std::string action_type = event.type == sf::Event::KeyPressed ? "START" : "END";
+                    //const std::string action_name = currentScene()->getActionMap().at(event.key.code); un comment when doing the map
+                    //currentScene()->doAction(Action(action_name, action_type));
+                }
+            }
         }
     }
 }
 
-
-void Engien::sUserInput()
-{
-
-}
 
 
 void Engien::update()

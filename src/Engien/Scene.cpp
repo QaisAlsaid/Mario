@@ -19,3 +19,9 @@ void Scene::doAction(const Action& action)
 {
     sDoAction(action);
 }
+
+
+std::map<int, std::string> Scene::getActionMap()
+{
+    return m_action_map;
+}

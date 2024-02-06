@@ -27,7 +27,7 @@ public:
     void              run();
     void              quit();
     Assets&           getAssets();
-    std::shared_ptr<Scene> currentScene(const std::string& scene_name);
+    std::shared_ptr<Scene> currentScene();
     sf::RenderWindow& getWindow(){return m_window;};
     void              changeScene(const std::string& scene_name, std::shared_ptr<Scene> scene);
 };
