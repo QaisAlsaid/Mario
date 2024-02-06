@@ -9,6 +9,7 @@ public:
     void update() override;
 
 private:
+    void init();
     void sRender()                       override;
     void sDoAction(const Action& action) override;
 };

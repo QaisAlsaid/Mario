@@ -14,7 +14,6 @@ public:
 public:
     Engien*               engien;
     EntityManager         entites;
-    std::vector<Action>   actions;
     size_t                current_frame;
     bool                  has_ended;
     bool                  is_paused;
@@ -23,6 +22,6 @@ public:
     virtual void sRender()                        = 0;
     void simulate(int count);
     void doAction(const Action& action);
-    void regesterAction(const Action& action);
+    void regesterAction(int action_code,const std::string& action_name);
     std::map<int, std::string> getActionMap();
 };

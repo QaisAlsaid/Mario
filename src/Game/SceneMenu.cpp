@@ -4,7 +4,14 @@
 SceneMenu::SceneMenu(Engien* engien)
 {
     this->engien = engien;
+    init();
 }
+
+void SceneMenu::init()
+{
+    regesterAction(sf::Keyboard::A, "Test");
+}
+
 
 void SceneMenu::sRender()
 {
@@ -22,7 +29,8 @@ void SceneMenu::sRender()
 
 void SceneMenu::sDoAction(const Action& action)
 {
-    std::cout<<"or";
+    if(action.name() == "Test")
+        engien->quit();
 }
 
 

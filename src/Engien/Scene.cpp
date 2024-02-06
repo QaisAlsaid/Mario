@@ -1,8 +1,8 @@
 #include "Scene.hpp"
 
-void Scene::regesterAction(const Action& action)
+void Scene::regesterAction(int action_code, const std::string& action_name)
 {
-    actions.push_back(action);
+    m_action_map[action_code] = action_name;
 }
 
 

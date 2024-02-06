@@ -16,6 +16,13 @@ void Engien::init(const std::string& file_name, std::string main_scene)
 std::shared_ptr<Scene> Engien::currentScene()
 {
     return m_scenes[m_current_scene];
+
+}
+
+void Engien::quit()
+{
+    m_is_running = false;
+    m_window.close();
 }
 
 Assets& Engien::getAssets()
@@ -42,22 +49,18 @@ void Engien::sEvent()
     sf::Event event;
     while(m_window.pollEvent(event))
     {
-        switch(event.type)
+
+        if(event.type == sf::Event::Closed)
         {
-            case sf::Event::Closed:
-            {
-                m_window.close();
-                break;
-            }
-            case sf::Event::KeyPressed || sf::Event::KeyReleased :
-            {
-                if(currentScene()->getActionMap().find(event.key.code) != currentScene()->getActionMap().end())
-                {
-                    const std::string action_type = event.type == sf::Event::KeyPressed ? "START" : "END";
-                    //const std::string action_name = currentScene()->getActionMap().at(event.key.code); un comment when doing the map
-                    //currentScene()->doAction(Action(action_name, action_type));
-                }
-            }
+            m_window.close();
+        }
+        if(event.type == sf::Event::KeyPressed || event.type == sf::Event::KeyReleased)
+        {
+            auto iter = currentScene()->getActionMap().find(event.key.code);
+            if(iter == currentScene()->getActionMap().end()) {continue;}
+            const std::string action_type = event.type == sf::Event::KeyPressed ? "START" : "END";
+                const std::string action_name = iter->second;
+                currentScene()->doAction(Action(action_name, action_type));
         }
     }
 }
@@ -67,5 +70,5 @@ void Engien::sEvent()
 void Engien::update()
 {
     sEvent();
-    m_scenes[m_current_scene]->update();
+    currentScene()->update();
 }
