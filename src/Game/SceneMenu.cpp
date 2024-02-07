@@ -15,15 +15,13 @@ void SceneMenu::init()
 
 void SceneMenu::sRender()
 {
-    Assets as;
-    as.addTexture("bigsmoke", "Assets/Game/bigsmoke.png");
-    auto& tux = as.getTexture("bigsmoke");
-    sf::Sprite bigsmoke;
-    bigsmoke.setTexture(tux);
-    bigsmoke.setPosition(engien->getWindow().getSize().x/2, engien->getWindow().getSize().y/2);
+    std::string name = "big_smoke_idel";
+    auto& anim = engien->getAssets().getAnimation(name);
     engien->getWindow().clear(sf::Color::Yellow);
-    engien->getWindow().draw(bigsmoke);
+    anim.getSprite().setPosition(250,250);
+    engien->getWindow().draw(anim.getSprite());
     engien->getWindow().display();
+
 }
 
 
@@ -36,6 +34,7 @@ void SceneMenu::sDoAction(const Action& action)
 
 void SceneMenu::update()
 {
+
     sRender();
 }
 

@@ -8,6 +8,7 @@ using namespace kr::math;
 class Component
 {
 public:
+    Component () {}
     bool has = false;
 };
 

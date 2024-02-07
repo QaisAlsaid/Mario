@@ -59,8 +59,8 @@ void Engien::sEvent()
             auto iter = currentScene()->getActionMap().find(event.key.code);
             if(iter == currentScene()->getActionMap().end()) {continue;}
             const std::string action_type = event.type == sf::Event::KeyPressed ? "START" : "END";
-                const std::string action_name = iter->second;
-                currentScene()->doAction(Action(action_name, action_type));
+            const std::string action_name = iter->second;
+            currentScene()->doAction(Action(action_name, action_type));
         }
     }
 }
@@ -69,6 +69,14 @@ void Engien::sEvent()
 
 void Engien::update()
 {
+    m_delta = m_clock.restart().asSeconds();
+    m_fps = 1.f / m_delta - m_last_delta;
+    m_last_delta = m_delta;
+    std::cout<<m_fps<<std::endl;
     sEvent();
+    for(auto& x : getAssets().getAnimations())
+    {
+        x.second.update(m_delta);
+    }
     currentScene()->update();
 }

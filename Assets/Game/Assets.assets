@@ -1,0 +1,2 @@
+Texture smoke_idel Assets/Game/Sprites/big_smoke_idel.png
+Animation big_smoke_idel smoke_idel 3 0.35

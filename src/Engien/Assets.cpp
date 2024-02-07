@@ -33,6 +33,11 @@ Animation& Assets::getAnimation(const std::string& name)
     return m_animations[name];
 }
 
+std::map<std::string, Animation>& Assets::getAnimations()
+{
+    return m_animations;
+}
+
 sf::Font& Assets::getFont(const std::string& name)
 {
     return m_fonts[name];
@@ -70,7 +75,8 @@ void Assets::loadFromFile(const std::string& file_name)
             file_stream >> name >> texture_name >> fps >> duration;
             if(m_textures.count(texture_name))
             {
-                Animation animation(name, m_textures[texture_name], std::stoi(fps), std::stoi(duration));
+                Animation animation(name, m_textures[texture_name], std::stoi(fps), std::stof(duration));
+                addAnimation(name, animation);
             }
             else
             {

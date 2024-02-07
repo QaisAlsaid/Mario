@@ -20,5 +20,6 @@ public:
     sf::Texture& getTexture(const std::string& name);
     //sf::Texture& getTexture(const std::string& name);
     Animation& getAnimation(const std::string& name);
+    std::map<std::string, Animation>& getAnimations();
     sf::Font& getFont(const std::string& name);
 };

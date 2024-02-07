@@ -13,8 +13,12 @@ private:
     sf::RenderWindow             m_window;
     Assets                       m_assets;
     std::string                  m_current_scene;
-    bool                         m_is_running = true;
-
+    bool                         m_is_running      = true;
+    sf::Clock                    m_clock;
+    float                        m_delta;
+    size_t                       m_frames          = 0;
+    short                        m_fps             = 0;
+    size_t                       m_last_delta      = 0;
 
 private:
     void              init(const std::string& file_name, std::string main_scene);

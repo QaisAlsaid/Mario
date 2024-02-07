@@ -1,6 +1,6 @@
 #include "Engien/Engien.hpp"
 int main()
 {
-    Engien e("hd", "menu");
+    Engien e("Assets/Game/Assets.assets", "menu");
     e.run();
 }
