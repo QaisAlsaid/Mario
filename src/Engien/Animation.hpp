@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "comman/Vec2.hpp"
-using namespace kr::math;
+using namespace kr;
 
 class Animation
 {

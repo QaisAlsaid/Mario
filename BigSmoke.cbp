@@ -13,6 +13,8 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="src/Engien" />
+					<Add directory="src/Game" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +24,8 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="src/Engien" />
+					<Add directory="src/Game" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -55,7 +59,11 @@
 		<Unit filename="src/Engien/Input.hpp" />
 		<Unit filename="src/Engien/Scene.cpp" />
 		<Unit filename="src/Engien/Scene.hpp" />
+		<Unit filename="src/Engien/UIButton.cpp" />
+		<Unit filename="src/Engien/UIButton.hpp" />
 		<Unit filename="src/Engien/components.hpp" />
+		<Unit filename="src/Game/SceneGame.cpp" />
+		<Unit filename="src/Game/SceneGame.hpp" />
 		<Unit filename="src/Game/SceneMenu.cpp" />
 		<Unit filename="src/Game/SceneMenu.hpp" />
 		<Unit filename="src/Game/main.cpp" />

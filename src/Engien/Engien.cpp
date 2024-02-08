@@ -19,6 +19,12 @@ std::shared_ptr<Scene> Engien::currentScene()
 
 }
 
+std::shared_ptr<Scene> Engien::getScene(const std::string& name)
+{
+    auto iter = m_scenes.find(name);
+    if(iter != m_scenes.end()) {return iter->second;}
+}
+
 void Engien::quit()
 {
     m_is_running = false;
@@ -52,7 +58,7 @@ void Engien::sEvent()
 
         if(event.type == sf::Event::Closed)
         {
-            m_window.close();
+            quit();
         }
         if(event.type == sf::Event::KeyPressed || event.type == sf::Event::KeyReleased)
         {

@@ -1,7 +1,7 @@
 #include "Vec3.hpp"
 
 
-using namespace kr::math;
+using namespace kr;
 
 
 Vec3::Vec3(float x, float y, float z) : x(x), y(y), z(z) {}

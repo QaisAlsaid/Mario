@@ -1,13 +1,17 @@
 #include "Vec2.hpp"
 #define pi 3.14159265359
 
-using namespace kr::math;
+using namespace kr;
 
 
 Vec2::Vec2(float x, float y) : x(x), y(y) {}
 
 
 Vec2::Vec2(){}
+
+Vec2::Vec2(float xy) : x(xy), y(xy){}
+
+Vec2::Vec2(sf::Vector2f vec){x = vec.x, y = vec.y;}
 
 
 sf::Vector2f Vec2::toSfVec() const

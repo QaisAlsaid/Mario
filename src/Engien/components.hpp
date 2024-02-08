@@ -2,7 +2,7 @@
 #include "comman/Vec2.hpp"
 #include "Engien/Animation.hpp"
 
-using namespace kr::math;
+using namespace kr;
 
 
 class Component
