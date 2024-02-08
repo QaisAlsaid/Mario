@@ -10,6 +10,7 @@ void Engien::init(const std::string& file_name, std::string main_scene)
 {
     m_assets.loadFromFile(file_name);
     m_window.create(sf::VideoMode(500,500),"");
+    m_window.setFramerateLimit(61);
     changeScene(main_scene, std::make_shared<SceneMenu>(this));
 }
 

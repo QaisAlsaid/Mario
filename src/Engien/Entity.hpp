@@ -12,7 +12,7 @@ typedef std::tuple<CTransform,
                     CGravity,
                     CAnimation,
                     CState,
-                    CLifespan> ComponentTuple();
+                    CLifespan> ComponentTuple;
 
 
 class Entity
@@ -23,8 +23,9 @@ class Entity
     bool           m_active     = true;
     size_t         m_id         = 0;
     std::string    m_tag        = "Entity";
-    Entity (const size_t& id, const std::string& tag) : m_id(id), m_tag(tag) {}
-
+    Entity(const size_t& id, const std::string& tag)
+        : m_id(id), m_tag(tag), m_components(std::make_tuple(CTransform(), CBoundingBox(),
+         CInput(), CGravity(), CAnimation(), CState(), CLifespan())) {}
 public:
 
     void destroy(){m_active = false;}

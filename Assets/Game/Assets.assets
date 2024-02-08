@@ -1,3 +1,3 @@
 Texture smoke_idel Assets/Game/Sprites/big_smoke_idel.png
-Animation big_smoke_idel smoke_idel 3 0.35
+Animation big_smoke_idel smoke_idel 4 0.25
 Font font Assets/Game/Fonts/font.ttf

@@ -25,6 +25,7 @@ void SceneMenu::init()
         b.setOnHoverdOutlineColor(sf::Color::Black);
         b.setName(text);
         m_buttons.push_back(b);
+
     }
 }
 

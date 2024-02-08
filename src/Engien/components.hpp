@@ -8,7 +8,7 @@ using namespace kr;
 class Component
 {
 public:
-    Component () {}
+    Component () = default;
     bool has = false;
 };
 
@@ -18,10 +18,10 @@ class CTransform : public Component
 public:
     Vec2 position      = {0, 0};
     Vec2 prev_position = {0, 0};
-    Vec2 velocity      = {0, 0};
     Vec2 scale         = {1, 1};
+    Vec2 velocity      = {0, 0};
     float angle        = 0;
-    CTransform() {}
+    CTransform() {};
     CTransform(const Vec2& pos) : position(pos) {}
     CTransform(const Vec2& pos, const Vec2& scale, const Vec2& velocity)
      : position(pos), scale(scale), velocity(velocity) {}
@@ -89,6 +89,7 @@ public:
 
 class CState : public Component
 {
+public:
     std::string state = "idle";
     CState() {}
     CState(const std::string& state) : state(state) {}
