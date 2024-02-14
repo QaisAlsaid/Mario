@@ -133,12 +133,10 @@ bool UIButton::isHoverd(sf::RenderWindow& window)
     if(sf::Mouse::getPosition(window).x > m_rect.getPosition().x - m_rect.getSize().x / 2.f && sf::Mouse::getPosition(window).x < m_rect.getPosition().x + m_rect.getSize().x / 2.f
        && sf::Mouse::getPosition(window).y < m_rect.getPosition().y + m_rect.getSize().y / 2.f && sf::Mouse::getPosition(window).y > m_rect.getPosition().y - m_rect.getSize().y / 2.f)
     {
-        m_rect.setFillColor(m_color_map["b_h_f_c"]);
-        m_rect.setOutlineColor(m_color_map["b_h_o_c"]);
+        m_state = State::Hoverd;
         return true;
     }
-    m_rect.setFillColor(m_color_map["b_d_f_c"]);
-    m_rect.setOutlineColor(m_color_map["b_d_o_c"]);
+    m_state = State::Default;
     return false;
 }
 
@@ -155,26 +153,61 @@ const std::string& UIButton::getName() const
 }
 
 
-bool UIButton::isClicked(sf::RenderWindow& window)
+bool UIButton::isPressed(sf::RenderWindow& window)
 {
     if(sf::Mouse::getPosition(window).x > m_rect.getPosition().x - m_rect.getSize().x / 2.f && sf::Mouse::getPosition(window).x < m_rect.getPosition().x + m_rect.getSize().x / 2.f
        && sf::Mouse::getPosition(window).y < m_rect.getPosition().y + m_rect.getSize().y / 2.f && sf::Mouse::getPosition(window).y > m_rect.getPosition().y - m_rect.getSize().y / 2.f
        && sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
-        m_rect.setFillColor(m_color_map["b_c_f_c"]);
-        m_rect.setOutlineColor(m_color_map["b_c_o_c"]);
+        m_state = State::Pressed;
         return true;
     }
-    m_rect.setFillColor(m_color_map["b_d_f_c"]);
-    m_rect.setOutlineColor(m_color_map["b_d_o_c"]);
+    isHoverd(window);
     return false;
 }
 
 
 void UIButton::centerText()
 {
-    sf::FloatRect textRect = m_renderText.getLocalBounds();
-    m_renderText.setOrigin(textRect.left + textRect.width/2.f,
-               textRect.top  + textRect.height/2.f);
+    m_textRect = m_renderText.getLocalBounds();
+    m_renderText.setOrigin(m_textRect.left + m_textRect.width/2.f,
+               m_textRect.top  + m_textRect.height/2.f);
     m_renderText.setPosition(m_rect.getPosition());
+}
+
+
+void UIButton::updateColor()
+{
+    switch(m_state)
+    {
+        case State::Pressed:
+        {
+            m_rect.setFillColor(m_color_map["b_c_f_c"]);
+            m_rect.setOutlineColor(m_color_map["b_c_o_c"]);
+            break;
+        }
+        case State::Hoverd:
+        {
+            m_rect.setFillColor(m_color_map["b_h_f_c"]);
+            m_rect.setOutlineColor(m_color_map["b_h_o_c"]);
+            break;
+        }
+        case State::Default:
+        {
+            m_rect.setFillColor(m_color_map["b_d_f_c"]);
+            m_rect.setOutlineColor(m_color_map["b_d_o_c"]);
+            break;
+        }
+    }
+}
+
+
+void UIButton::update(sf::RenderWindow& window)
+{
+    centerText();
+    isHoverd(window);
+    isPressed(window);
+    updateColor();
+    window.draw(getElements().first);
+    window.draw(getElements().second);
 }

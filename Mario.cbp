@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Mario" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Mario" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="src/Engien" />
+					<Add directory="src/Game" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Mario" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="src/Engien" />
+					<Add directory="src/Game" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-std=c17" />
+			<Add option="-std=c++17" />
+			<Add directory="src/" />
+		</Compiler>
+		<Linker>
+			<Add library="sfml-graphics" />
+			<Add library="sfml-window" />
+			<Add library="sfml-audio" />
+			<Add library="sfml-system" />
+			<Add library="sfml-network" />
+		</Linker>
+		<Unit filename="src/Engien/Actions.hpp" />
+		<Unit filename="src/Engien/Animation.cpp" />
+		<Unit filename="src/Engien/Animation.hpp" />
+		<Unit filename="src/Engien/Assets.cpp" />
+		<Unit filename="src/Engien/Assets.hpp" />
+		<Unit filename="src/Engien/Engein.hpp" />
+		<Unit filename="src/Engien/Engien.cpp" />
+		<Unit filename="src/Engien/Engien.hpp" />
+		<Unit filename="src/Engien/Entity.hpp" />
+		<Unit filename="src/Engien/EntityManager.cpp" />
+		<Unit filename="src/Engien/EntityManager.hpp" />
+		<Unit filename="src/Engien/Input.cpp" />
+		<Unit filename="src/Engien/Input.hpp" />
+		<Unit filename="src/Engien/Phisics.cpp" />
+		<Unit filename="src/Engien/Phisics.hpp" />
+		<Unit filename="src/Engien/Scene.cpp" />
+		<Unit filename="src/Engien/Scene.hpp" />
+		<Unit filename="src/Engien/UIButton.cpp" />
+		<Unit filename="src/Engien/UIButton.hpp" />
+		<Unit filename="src/Engien/components.hpp" />
+		<Unit filename="src/Engien/levelLoader.hpp" />
+		<Unit filename="src/Game/SceneGame.cpp" />
+		<Unit filename="src/Game/SceneGame.hpp" />
+		<Unit filename="src/Game/SceneMenu.cpp" />
+		<Unit filename="src/Game/SceneMenu.hpp" />
+		<Unit filename="src/Game/main.cpp" />
+		<Unit filename="src/comman/Vec2.cpp" />
+		<Unit filename="src/comman/Vec2.hpp" />
+		<Unit filename="src/comman/Vec3.cpp" />
+		<Unit filename="src/comman/Vec3.hpp" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>

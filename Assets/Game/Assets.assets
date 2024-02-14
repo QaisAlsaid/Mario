@@ -1,3 +1,19 @@
-Texture smoke_idel Assets/Game/Sprites/big_smoke_idel.png
-Animation big_smoke_idel smoke_idel 4 0.25
+Texture player_idel Assets/Game/Sprites/mario_idel.png
+Texture player_walk Assets/Game/Sprites/mario_walk.png
+Texture ground Assets/Game/Sprites/ground_block.png
+Texture uground Assets/Game/Sprites/uground_block.png
+Texture stairs Assets/Game/Sprites/stairs_block.png
+Texture coin Assets/Game/Sprites/coin.png
+Texture cloud Assets/Game/Sprites/cloud.png
+Texture qblock Assets/Game/Sprites/qblock.png
+Texture qblock_dead Assets/Game/Sprites/qblock_dead.png
+Animation player_idel player_idel 1 0
+Animation player_walk player_idel 3 0.2
+Animation ground ground 1 0
+Animation coin coin 3 0.2
+Animation qblock qblock 3 0.2
+Animation qblock_dead qblock_dead 1 0
+Animation cloud cloud 1 0
+Animation uground uground 1 0
+Animation stairs stairs 1 0
 Font font Assets/Game/Fonts/font.ttf

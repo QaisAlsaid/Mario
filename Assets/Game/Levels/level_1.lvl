@@ -1,0 +1,7 @@
+repeat i 0 20
+Tile ground 2 i 1 i 64 64
+repeat i 0 20
+Tile uground 1 i 0 i 64 64
+Player 5 5 30 44 100 200 200 player_idel
+Dec cloud 3 7
+Tile qblock 7 5 64 64

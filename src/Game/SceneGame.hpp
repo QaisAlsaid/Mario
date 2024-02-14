@@ -2,29 +2,44 @@
 #include "Engien/Scene.hpp"
 #include "Engien.hpp"
 #include "UIButton.hpp"
+#include <fstream>
+
+struct PlayerConfig
+{
+    int Gx = 0,Gy = 0;
+    float Cw, Ch, S, Ms, Js;
+    std::string Ba, anim;
+};
+
+
 class SceneGame : public Scene
 {
 public:
-    short r=0,g=0,bb=0;
-    SceneGame(Engien* engien) {this->engien = engien;}
-    void sRender()
-    {
-        srand(time(0));
-        r += rand()%3; g+= rand()%5; bb += rand()%1;if(r>=255 ||g>=255||bb>=255) r = g = bb = 0;
-        auto& font = engien->getAssets().getFont("font");
-        UIButton b(Vec2(200),Vec2(250),"Back to Menu",font);
-        b.setOnHoverdFillColor(sf::Color(68,32,0));
-        if(b.isClicked(engien->getWindow())) engien->changeScene("menu",engien->getScene("menu"));
-        b.isHoverd(engien->getWindow());
-        engien->getWindow().clear(sf::Color(r,g,bb));
-        engien->getWindow().draw(b.getElements().first);
-        engien->getWindow().draw(b.getElements().second);
-        engien->getWindow().display();
-        auto e = entites.addEntity("dummy");
-        e->addComponent<CTransform>(Vec2(100),Vec2(2),Vec2(2));
-        auto t = e->hasComponent<CTransform>();
-        std::cout<<t<<std::endl;
-    }
-    void sDoAction(const Action& action) {}
-    void update() {sRender();}
+    SceneGame(Engien* engien);
+    void update(float delta) override;
+private:
+    void init();
+    void loadLevel(const std::string& path);
+    void sMovment(std::shared_ptr<Entity> e);
+    void spawnPlayer();
+    void sCollision();
+    void showBoundingBox(const std::shared_ptr<Entity> entity);
+    void sLifespan(){}
+    void onEnd(){}
+    void drawGrid();
+    void movePlayer();
+    Vec2 gridToPixel(const Vec2& grid_pos, std::shared_ptr<Entity> entity);
+    void sRender()                       override;
+    void sDoAction(const Action& action) override;
+    void sAnimation()                    override;
+
+private:
+    PlayerConfig m_player_config;
+    std::shared_ptr<Entity> m_player;
+    sf::View     m_view;
+    Vec2         m_grid             = {64, 64};
+    Vec2         m_level            = {2000, 2000};
+    bool         m_bounding_box_on  = false;
+    bool         m_tux_on           = true;
 };
+

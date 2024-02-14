@@ -23,9 +23,9 @@ private:
 private:
     void              init(const std::string& file_name, std::string main_scene);
     void              update();
-    void              sUserInput();
+    void              sUserInput(const sf::Event& event);
     void              sEvent();
-
+    void              handelResize();
 public:
     Engien(const std::string& file_name, std::string main_scene);
     void              run();

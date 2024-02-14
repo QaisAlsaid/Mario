@@ -1,0 +1,526 @@
+# depslib dependency file v1.0
+1705213328 source:/root/c++/Mario/src/comman/Vec2.cpp
+	"Vec2.hpp"
+
+1705213217 /root/c++/Mario/src/comman/Vec2.hpp
+	<cmath>
+	<iostream>
+	<SFML/Graphics.hpp>
+
+1705053856 source:/root/c++/Mario/src/comman/Vec3.cpp
+	"Vec3.hpp"
+
+1704980646 /root/c++/Mario/src/comman/Vec3.hpp
+	<cmath>
+	<SFML/Graphics.hpp>
+
+1707086336 source:/root/c++/Mario/src/Engien/Animation.cpp
+	"Animation.hpp"
+
+1707093774 /root/c++/Mario/src/Engien/Animation.hpp
+	<SFML/Graphics.hpp>
+	"comman/Vec2.hpp"
+
+1707093504 source:/root/c++/Mario/src/Engien/Assets.cpp
+	"Assets.hpp"
+	<fstream>
+
+1707093004 /root/c++/Mario/src/Engien/Assets.hpp
+	<map>
+	<SFML/Graphics.hpp>
+	"Animation.hpp"
+
+1707190157 source:/root/c++/Mario/src/Engien/Engien.cpp
+	"Engien.hpp"
+	"Game/SceneMenu.hpp"
+
+1707101790 /root/c++/Mario/src/Engien/Engien.hpp
+	"Scene.hpp"
+	"Assets.hpp"
+	"Actions.hpp"
+	<map>
+	<memory>
+
+1707190288 /root/c++/Mario/src/Engien/Scene.hpp
+	"EntityManager.hpp"
+	"Engien/Assets.hpp"
+	"Engien/Actions.hpp"
+
+1706143403 /root/c++/Mario/src/Engien/Actions.hpp
+	<string>
+
+1706141272 source:/root/c++/Mario/src/Engien/EntityManager.cpp
+	"Engien/EntityManager.hpp"
+
+1707087868 source:/root/c++/Mario/src/Engien/Input.cpp
+	"Input.hpp"
+
+1707087879 /root/c++/Mario/src/Engien/Input.hpp
+	"Actions.hpp"
+	<map>
+	<SFML/Graphics.hpp>
+
+1707093301 source:/root/c++/Mario/src/Engien/Scene.cpp
+	"Scene.hpp"
+
+1707097116 source:/root/c++/Mario/src/Game/main.cpp
+	"Engien/Engien.hpp"
+
+1707188482 /root/c++/Mario/src/Engien/EntityManager.hpp
+	"Entity.hpp"
+	<memory>
+
+1707188489 /root/c++/Mario/src/Engien/Entity.hpp
+	"components.hpp"
+	<tuple>
+	<string>
+
+1707188831 /root/c++/Mario/src/Engien/components.hpp
+	"comman/Vec2.hpp"
+	"Engien/Animation.hpp"
+
+1707190084 /root/c++/Mario/src/Game/SceneMenu.hpp
+	"Engien/Scene.hpp"
+	"Engien/Engien.hpp"
+
+1707189978 source:/root/c++/Mario/src/Game/SceneMenu.cpp
+	"SceneMenu.hpp"
+	<SFML/Graphics.hpp>
+
+1707191602 source:/home/qais/My_Repos/Mario/src/comman/Vec2.cpp
+	"Vec2.hpp"
+
+1707191602 /home/qais/My_Repos/Mario/src/comman/Vec2.hpp
+	<cmath>
+	<iostream>
+	<SFML/Graphics.hpp>
+
+1707191602 source:/home/qais/My_Repos/Big-Smoke/src/comman/Vec3.cpp
+	"Vec3.hpp"
+
+1707191602 /home/qais/My_Repos/Big-Smoke/src/comman/Vec3.hpp
+	<cmath>
+	<SFML/Graphics.hpp>
+
+1707191602 source:/home/qais/My_Repos/Big-Smoke/src/Engien/Animation.cpp
+	"Animation.hpp"
+
+1707191602 /home/qais/My_Repos/Big-Smoke/src/Engien/Animation.hpp
+	<SFML/Graphics.hpp>
+	"comman/Vec2.hpp"
+
+1707191602 source:/home/qais/My_Repos/Big-Smoke/src/Engien/Assets.cpp
+	"Assets.hpp"
+	<fstream>
+
+1707191602 /home/qais/My_Repos/Big-Smoke/src/Engien/Assets.hpp
+	<map>
+	<SFML/Graphics.hpp>
+	"Animation.hpp"
+
+1707249551 source:/home/qais/My_Repos/Big-Smoke/src/Engien/Engien.cpp
+	"Engien.hpp"
+	"Game/SceneMenu.hpp"
+
+1707192537 /home/qais/My_Repos/Big-Smoke/src/Engien/Engien.hpp
+	"Scene.hpp"
+	"Assets.hpp"
+	"Actions.hpp"
+	<map>
+	<memory>
+
+1707248800 /home/qais/My_Repos/Big-Smoke/src/Engien/Scene.hpp
+	"EntityManager.hpp"
+	"Engien/Assets.hpp"
+	"Engien/Actions.hpp"
+	<map>
+
+1707191602 /home/qais/My_Repos/Big-Smoke/src/Engien/EntityManager.hpp
+	"Entity.hpp"
+	<memory>
+
+1707191602 /home/qais/My_Repos/Big-Smoke/src/Engien/Entity.hpp
+	"components.hpp"
+	<tuple>
+	<string>
+
+1707191602 /home/qais/My_Repos/Big-Smoke/src/Engien/components.hpp
+	"comman/Vec2.hpp"
+	"Engien/Animation.hpp"
+
+1707191602 /home/qais/My_Repos/Big-Smoke/src/Engien/Actions.hpp
+	<string>
+
+1707191602 source:/home/qais/My_Repos/Big-Smoke/src/Engien/EntityManager.cpp
+	"Engien/EntityManager.hpp"
+
+1707191602 source:/home/qais/My_Repos/Big-Smoke/src/Engien/Input.cpp
+	"Input.hpp"
+
+1707191602 /home/qais/My_Repos/Big-Smoke/src/Engien/Input.hpp
+	"Actions.hpp"
+	<map>
+	<SFML/Graphics.hpp>
+
+1707248800 source:/home/qais/My_Repos/Big-Smoke/src/Engien/Scene.cpp
+	"Scene.hpp"
+
+1707191602 source:/home/qais/My_Repos/Big-Smoke/src/Game/main.cpp
+	"Engien/Engien.hpp"
+
+1707249647 source:/home/qais/My_Repos/Big-Smoke/src/Game/SceneMenu.cpp
+	"SceneMenu.hpp"
+	<SFML/Graphics.hpp>
+
+1707248489 /home/qais/My_Repos/Big-Smoke/src/Game/SceneMenu.hpp
+	"Engien/Scene.hpp"
+	"Engien/Engien.hpp"
+
+1707724805 source:/root/My_Repos/Big-Smoke/src/comman/Vec2.cpp
+	"Vec2.hpp"
+
+1707724805 /root/My_Repos/Big-Smoke/src/comman/Vec2.hpp
+	<cmath>
+	<iostream>
+	<SFML/Graphics.hpp>
+
+1707363863 source:/root/My_Repos/Big-Smoke/src/comman/Vec3.cpp
+	"Vec3.hpp"
+
+1707363841 /root/My_Repos/Big-Smoke/src/comman/Vec3.hpp
+	<cmath>
+	<SFML/Graphics.hpp>
+
+1707733023 source:/root/My_Repos/Big-Smoke/src/Engien/Animation.cpp
+	"Animation.hpp"
+
+1707732046 /root/My_Repos/Big-Smoke/src/Engien/Animation.hpp
+	<SFML/Graphics.hpp>
+	"comman/Vec2.hpp"
+
+1707444016 source:/root/My_Repos/Big-Smoke/src/Engien/Assets.cpp
+	"Assets.hpp"
+	<fstream>
+
+1707267121 /root/My_Repos/Big-Smoke/src/Engien/Assets.hpp
+	<map>
+	<SFML/Graphics.hpp>
+	"Animation.hpp"
+
+1707795006 source:/root/My_Repos/Big-Smoke/src/Engien/Engien.cpp
+	"Engien.hpp"
+	"Game/SceneMenu.hpp"
+
+1707794765 /root/My_Repos/Big-Smoke/src/Engien/Engien.hpp
+	"Scene.hpp"
+	"Assets.hpp"
+	"Actions.hpp"
+	<map>
+	<memory>
+
+1707795006 /root/My_Repos/Big-Smoke/src/Engien/Scene.hpp
+	"EntityManager.hpp"
+	"Engien/Assets.hpp"
+	"Engien/Actions.hpp"
+	<map>
+
+1707454871 /root/My_Repos/Big-Smoke/src/Engien/EntityManager.hpp
+	"Entity.hpp"
+	<memory>
+
+1707714539 /root/My_Repos/Big-Smoke/src/Engien/Entity.hpp
+	"components.hpp"
+	<tuple>
+	<string>
+
+1707428124 /root/My_Repos/Big-Smoke/src/Engien/components.hpp
+	"comman/Vec2.hpp"
+	"Engien/Animation.hpp"
+
+1707260120 /root/My_Repos/Big-Smoke/src/Engien/Actions.hpp
+	<string>
+
+1707260120 source:/root/My_Repos/Big-Smoke/src/Engien/EntityManager.cpp
+	"Engien/EntityManager.hpp"
+
+1707260120 source:/root/My_Repos/Big-Smoke/src/Engien/Input.cpp
+	"Input.hpp"
+
+1707878923 /root/My_Repos/Big-Smoke/src/Engien/Input.hpp
+
+1707444227 source:/root/My_Repos/Big-Smoke/src/Engien/Scene.cpp
+	"Scene.hpp"
+
+1707380153 source:/root/My_Repos/Big-Smoke/src/Game/main.cpp
+	"Engien/Engien.hpp"
+
+1707797996 source:/root/My_Repos/Big-Smoke/src/Game/SceneMenu.cpp
+	"SceneMenu.hpp"
+	<SFML/Graphics.hpp>
+
+1707795006 /root/My_Repos/Big-Smoke/src/Game/SceneMenu.hpp
+	"Engien/Scene.hpp"
+	"Engien/Engien.hpp"
+	"Game/SceneGame.hpp"
+	"UIButton.hpp"
+
+1707724805 /root/My_Repos/Big-Smoke/src//comman/Vec2.hpp
+	<cmath>
+	<iostream>
+	<SFML/Graphics.hpp>
+
+1707732046 /root/My_Repos/Big-Smoke/src//Engien/Animation.hpp
+	<SFML/Graphics.hpp>
+	"comman/Vec2.hpp"
+
+1707267121 /root/My_Repos/Big-Smoke/src//Engien/Assets.hpp
+	<map>
+	<SFML/Graphics.hpp>
+	"Animation.hpp"
+
+1707260120 /root/My_Repos/Big-Smoke/src//Engien/Actions.hpp
+	<string>
+
+1707795006 /root/My_Repos/Big-Smoke/src//Game/SceneMenu.hpp
+	"Engien/Scene.hpp"
+	"Engien/Engien.hpp"
+	"Game/SceneGame.hpp"
+	"UIButton.hpp"
+
+1707795006 /root/My_Repos/Big-Smoke/src//Engien/Scene.hpp
+	"EntityManager.hpp"
+	"Engien/Assets.hpp"
+	"Engien/Actions.hpp"
+	<map>
+
+1707454871 /root/My_Repos/Big-Smoke/src//Engien/EntityManager.hpp
+	"Entity.hpp"
+	<memory>
+
+1707714539 /root/My_Repos/Big-Smoke/src//Engien/Entity.hpp
+	"components.hpp"
+	<tuple>
+	<string>
+
+1707428124 /root/My_Repos/Big-Smoke/src//Engien/components.hpp
+	"comman/Vec2.hpp"
+	"Engien/Animation.hpp"
+
+1707794765 /root/My_Repos/Big-Smoke/src//Engien/Engien.hpp
+	"Scene.hpp"
+	"Assets.hpp"
+	"Actions.hpp"
+	<map>
+	<memory>
+
+1707708629 source:/root/My_Repos/Big-Smoke/src/Engien/UIButton.cpp
+	"UIButton.hpp"
+
+1707708703 /root/My_Repos/Big-Smoke/src/Engien/UIButton.hpp
+	<SFML/Graphics.hpp>
+	<utility>
+	<string>
+	"comman/Vec2.hpp"
+	<Actions.hpp>
+	<map>
+
+1707881818 source:/root/My_Repos/Big-Smoke/src/Game/SceneGame.cpp
+	"SceneGame.hpp"
+	"Phisics.hpp"
+
+1707879212 /root/My_Repos/Big-Smoke/src/Game/SceneGame.hpp
+	"Engien/Scene.hpp"
+	"Engien.hpp"
+	"UIButton.hpp"
+	<fstream>
+
+1707879212 /root/My_Repos/Big-Smoke/src//Game/SceneGame.hpp
+	"Engien/Scene.hpp"
+	"Engien.hpp"
+	"UIButton.hpp"
+	<fstream>
+
+1707260120 /root/My_Repos/Big-Smoke/src/Engien/Engein.hpp
+
+1707878453 source:/root/My_Repos/Big-Smoke/src/Engien/Phisics.cpp
+	"Phisics.hpp"
+
+1707798211 /root/My_Repos/Big-Smoke/src/Engien/Phisics.hpp
+	"comman/Vec2.hpp"
+	"Entity.hpp"
+	<memory>
+	<cmath>
+
+1707724805 source:/root/My_Repos/Mario/src/comman/Vec2.cpp
+	"Vec2.hpp"
+
+1707724805 /root/My_Repos/Mario/src/comman/Vec2.hpp
+	<cmath>
+	<iostream>
+	<SFML/Graphics.hpp>
+
+1707363863 source:/root/My_Repos/Mario/src/comman/Vec3.cpp
+	"Vec3.hpp"
+
+1707363841 /root/My_Repos/Mario/src/comman/Vec3.hpp
+	<cmath>
+	<SFML/Graphics.hpp>
+
+1707733023 source:/root/My_Repos/Mario/src/Engien/Animation.cpp
+	"Animation.hpp"
+
+1707732046 /root/My_Repos/Mario/src/Engien/Animation.hpp
+	<SFML/Graphics.hpp>
+	"comman/Vec2.hpp"
+
+1707724805 /root/My_Repos/Mario/src//comman/Vec2.hpp
+	<cmath>
+	<iostream>
+	<SFML/Graphics.hpp>
+
+1707444016 source:/root/My_Repos/Mario/src/Engien/Assets.cpp
+	"Assets.hpp"
+	<fstream>
+
+1707267121 /root/My_Repos/Mario/src/Engien/Assets.hpp
+	<map>
+	<SFML/Graphics.hpp>
+	"Animation.hpp"
+
+1707795006 source:/root/My_Repos/Mario/src/Engien/Engien.cpp
+	"Engien.hpp"
+	"Game/SceneMenu.hpp"
+
+1707794765 /root/My_Repos/Mario/src/Engien/Engien.hpp
+	"Scene.hpp"
+	"Assets.hpp"
+	"Actions.hpp"
+	<map>
+	<memory>
+
+1707795006 /root/My_Repos/Mario/src/Engien/Scene.hpp
+	"EntityManager.hpp"
+	"Engien/Assets.hpp"
+	"Engien/Actions.hpp"
+	<map>
+
+1707454871 /root/My_Repos/Mario/src/Engien/EntityManager.hpp
+	"Entity.hpp"
+	<memory>
+
+1707714539 /root/My_Repos/Mario/src/Engien/Entity.hpp
+	"components.hpp"
+	<tuple>
+	<string>
+
+1707428124 /root/My_Repos/Mario/src/Engien/components.hpp
+	"comman/Vec2.hpp"
+	"Engien/Animation.hpp"
+
+1707732046 /root/My_Repos/Mario/src//Engien/Animation.hpp
+	<SFML/Graphics.hpp>
+	"comman/Vec2.hpp"
+
+1707267121 /root/My_Repos/Mario/src//Engien/Assets.hpp
+	<map>
+	<SFML/Graphics.hpp>
+	"Animation.hpp"
+
+1707260120 /root/My_Repos/Mario/src//Engien/Actions.hpp
+	<string>
+
+1707260120 /root/My_Repos/Mario/src/Engien/Actions.hpp
+	<string>
+
+1707795006 /root/My_Repos/Mario/src//Game/SceneMenu.hpp
+	"Engien/Scene.hpp"
+	"Engien/Engien.hpp"
+	"Game/SceneGame.hpp"
+	"UIButton.hpp"
+
+1707795006 /root/My_Repos/Mario/src//Engien/Scene.hpp
+	"EntityManager.hpp"
+	"Engien/Assets.hpp"
+	"Engien/Actions.hpp"
+	<map>
+
+1707454871 /root/My_Repos/Mario/src//Engien/EntityManager.hpp
+	"Entity.hpp"
+	<memory>
+
+1707714539 /root/My_Repos/Mario/src//Engien/Entity.hpp
+	"components.hpp"
+	<tuple>
+	<string>
+
+1707428124 /root/My_Repos/Mario/src//Engien/components.hpp
+	"comman/Vec2.hpp"
+	"Engien/Animation.hpp"
+
+1707794765 /root/My_Repos/Mario/src//Engien/Engien.hpp
+	"Scene.hpp"
+	"Assets.hpp"
+	"Actions.hpp"
+	<map>
+	<memory>
+
+1707895988 /root/My_Repos/Mario/src//Game/SceneGame.hpp
+	"Engien/Scene.hpp"
+	"Engien.hpp"
+	"UIButton.hpp"
+	<fstream>
+
+1707708703 /root/My_Repos/Mario/src/Engien/UIButton.hpp
+	<SFML/Graphics.hpp>
+	<utility>
+	<string>
+	"comman/Vec2.hpp"
+	<Actions.hpp>
+	<map>
+
+1707260120 source:/root/My_Repos/Mario/src/Engien/EntityManager.cpp
+	"Engien/EntityManager.hpp"
+
+1707260120 source:/root/My_Repos/Mario/src/Engien/Input.cpp
+	"Input.hpp"
+
+1707878923 /root/My_Repos/Mario/src/Engien/Input.hpp
+
+1707895461 source:/root/My_Repos/Mario/src/Engien/Phisics.cpp
+	"Phisics.hpp"
+
+1707798211 /root/My_Repos/Mario/src/Engien/Phisics.hpp
+	"comman/Vec2.hpp"
+	"Entity.hpp"
+	<memory>
+	<cmath>
+
+1707444227 source:/root/My_Repos/Mario/src/Engien/Scene.cpp
+	"Scene.hpp"
+
+1707708629 source:/root/My_Repos/Mario/src/Engien/UIButton.cpp
+	"UIButton.hpp"
+
+1707380153 source:/root/My_Repos/Mario/src/Game/main.cpp
+	"Engien/Engien.hpp"
+
+1707902745 source:/root/My_Repos/Mario/src/Game/SceneGame.cpp
+	"SceneGame.hpp"
+	"Phisics.hpp"
+
+1707895988 /root/My_Repos/Mario/src/Game/SceneGame.hpp
+	"Engien/Scene.hpp"
+	"Engien.hpp"
+	"UIButton.hpp"
+	<fstream>
+
+1707797996 source:/root/My_Repos/Mario/src/Game/SceneMenu.cpp
+	"SceneMenu.hpp"
+	<SFML/Graphics.hpp>
+
+1707795006 /root/My_Repos/Mario/src/Game/SceneMenu.hpp
+	"Engien/Scene.hpp"
+	"Engien/Engien.hpp"
+	"Game/SceneGame.hpp"
+	"UIButton.hpp"
+
