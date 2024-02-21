@@ -27,9 +27,9 @@ void SceneMenu::init()
         b.setOnHoverdOutlineColor(sf::Color::Black);
         b.setName(text);
         m_buttons.push_back(b);
-    auto& anim = engien->getAssets().getAnimation("player_idel");
+    auto& anim = engien->getAssets().getAnimation("player_walk");
     auto e = entites.addEntity("dummy");
-    e->addComponent<CTransform>(Vec2(500, 550), Vec2(1), Vec2(0));
+    e->addComponent<CTransform>(Vec2(450, 450), Vec2(1), Vec2(0));
     e->addComponent<CAnimation>(anim, true);
     }
 }
@@ -39,11 +39,11 @@ void SceneMenu::handelResize(float aspect_ratio)
     m_view.setSize(m_view_size.x * aspect_ratio, m_view_size.y * aspect_ratio);
 }
 
-void SceneMenu::sRender()
+void SceneMenu::sRender(const std::shared_ptr<Entity>& e)
 {
     engien->getWindow().clear(sf::Color(65,6,56));
     drawGrid();
-    for(auto e : entites.getEntites())
+    //for(auto e : entites.getEntites())
     {
         if(e->hasComponent<CAnimation>() && e->hasComponent<CTransform>())
         {
@@ -94,6 +94,7 @@ void SceneMenu::update(float delta)
 {
     m_delta = delta;
     entites.update();
-    sRender();
+    for(auto& e : entites.getEntites())
+        sRender(e);
 }
 

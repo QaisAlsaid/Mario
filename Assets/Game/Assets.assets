@@ -1,19 +1,37 @@
-Texture player_idel Assets/Game/Sprites/mario_idel.png
-Texture player_walk Assets/Game/Sprites/mario_walk.png
-Texture ground Assets/Game/Sprites/ground_block.png
-Texture uground Assets/Game/Sprites/uground_block.png
-Texture stairs Assets/Game/Sprites/stairs_block.png
+Texture player_idel Assets/Game/Sprites/player_idel.png
+Texture player_walk Assets/Game/Sprites/player_walk.png
+Texture player_jump Assets/Game/Sprites/player_jump.png
+Texture player_fall Assets/Game/Sprites/player_fall.png
+Texture key Assets/Game/Sprites/key.png
+Texture spike Assets/Game/Sprites/spike.png
+Texture castel Assets/Game/Sprites/castel.png
+Texture bullet Assets/Game/Sprites/bullet.png
+Texture explosion1 Assets/Game/Sprites/explosion1.png
+Texture ground Assets/Game/Sprites/ground.png
+Texture ublock Assets/Game/Sprites/ublock.png
+Texture block Assets/Game/Sprites/block.png
+Texture stairs Assets/Game/Sprites/stairs.png
 Texture coin Assets/Game/Sprites/coin.png
+Texture lava Assets/Game/Sprites/lava.png
 Texture cloud Assets/Game/Sprites/cloud.png
 Texture qblock Assets/Game/Sprites/qblock.png
 Texture qblock_dead Assets/Game/Sprites/qblock_dead.png
 Animation player_idel player_idel 1 0
-Animation player_walk player_idel 3 0.2
+Animation player_jump player_jump 1 0
+Animation player_fall player_fall 1 0
+Animation player_walk player_walk 3 0.2
+Animation key key 12 0.3
+Animation lava lava 1 0
+Animation spike spike 10 0.2
+Animation castel castel 1 0
+Animation explosion1 explosion1 8 0.2
 Animation ground ground 1 0
+Animation bullet bullet 5 0.1
 Animation coin coin 3 0.2
 Animation qblock qblock 3 0.2
 Animation qblock_dead qblock_dead 1 0
 Animation cloud cloud 1 0
-Animation uground uground 1 0
+Animation ublock ublock 1 0
+Animation block block 1 0
 Animation stairs stairs 1 0
 Font font Assets/Game/Fonts/font.ttf

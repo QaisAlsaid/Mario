@@ -1,8 +1,10 @@
 #include "Phisics.hpp"
 
 
-Vec2 Phisics::getOverLap(std::shared_ptr<Entity> first, std::shared_ptr<Entity> second)
+Vec2 Physics::getOverLap(std::shared_ptr<Entity> first, std::shared_ptr<Entity> second)
 {
+if(!(first->hasComponent<CBoundingBox>()) || !(second->hasComponent<CBoundingBox>()) ||
+    !(second->hasComponent<CTransform>()) || !(second->hasComponent<CTransform>())) return Vec2(-1);
     const auto& f_p = first->getComponent<CTransform>().position;
     const auto& s_p = second->getComponent<CTransform>().position;
     const auto& f_c = first->getComponent<CBoundingBox>().half_size;
@@ -13,7 +15,7 @@ Vec2 Phisics::getOverLap(std::shared_ptr<Entity> first, std::shared_ptr<Entity> 
 }
 
 
-bool Phisics::isOverLap(std::shared_ptr<Entity> first, std::shared_ptr<Entity> second)
+bool Physics::isOverLap(std::shared_ptr<Entity> first, std::shared_ptr<Entity> second)
 {
     const auto& f_p = first->getComponent<CTransform>().position;
     const auto& s_p = second->getComponent<CTransform>().position;
@@ -26,8 +28,10 @@ bool Phisics::isOverLap(std::shared_ptr<Entity> first, std::shared_ptr<Entity> s
 }
 
 
-Vec2 Phisics::getPrevOverLap(std::shared_ptr<Entity> first, std::shared_ptr<Entity> second)
+Vec2 Physics::getPrevOverLap(std::shared_ptr<Entity> first, std::shared_ptr<Entity> second)
 {
+    if(!(first->hasComponent<CBoundingBox>()) || !(second->hasComponent<CBoundingBox>()) ||
+    !(second->hasComponent<CTransform>()) || !(second->hasComponent<CTransform>())) return Vec2(-1);
     const auto& f_p = first->getComponent<CTransform>().prev_position;
     const auto& s_p = second->getComponent<CTransform>().prev_position;
     const auto& f_c = first->getComponent<CBoundingBox>().half_size;
@@ -37,102 +41,48 @@ Vec2 Phisics::getPrevOverLap(std::shared_ptr<Entity> first, std::shared_ptr<Enti
 }
 
 
-void Phisics::normalResolution(std::shared_ptr<Entity> moving, std::shared_ptr<Entity> stati_c)
+void Physics::normalResolution(std::shared_ptr<Entity> moving, std::shared_ptr<Entity> stati_c, float delta)
 {
-    auto ol      = Phisics::getOverLap(moving, stati_c);
-    auto prev_ol = Phisics::getPrevOverLap(moving, stati_c);
-    const auto epsilon = 1.69;
+    auto ol      = Physics::getOverLap(moving, stati_c);
+    auto prev_ol = Physics::getPrevOverLap(moving, stati_c);
+    const auto epsilon = 0;
     if(ol > 0)
     {
-        if(ol.y > ol.x && ol.y - ol.x > epsilon)
+        if(prev_ol.y > 0)
         {
-            if(moving->getComponent<CTransform>().prev_position.x > stati_c->getComponent<CTransform>().prev_position.x)
+            if(moving->getComponent<CTransform>().position.x > stati_c->getComponent<CTransform>().position.x)
             {
                 // => came from right
                 moving->getComponent<CTransform>().position.x += ol.x;
+                //moving->getComponent<CTransform>().velocity.x *= -1;
             }
-            else if(moving->getComponent<CTransform>().prev_position.x < stati_c->getComponent<CTransform>().prev_position.x)
+            else if(moving->getComponent<CTransform>().position.x < stati_c->getComponent<CTransform>().position.x)
             {
                 // => came from left
-                moving->getComponent<CTransform>().position.x += ol.x * -1;
+                moving->getComponent<CTransform>().position.x -= ol.x;
+                //moving->getComponent<CTransform>().velocity.x *= -1;
             }
+            return;
+        }
+        if(prev_ol.x >= 0)
+        {
+            if(moving->getComponent<CTransform>().position.y < stati_c->getComponent<CTransform>().position.y)
+            {
+                // => came from top
+                moving->getComponent<CTransform>().position.y = stati_c->getComponent<CTransform>().position.y - stati_c->getComponent<CBoundingBox>().half_size.y- moving->getComponent<CBoundingBox>().half_size.y;
+                //(ol.y + moving->getComponent<CTransform>().velocity.y*delta);
+               // moving->getComponent<CTransform>().velocity.y *= -1;
+
+            }
+            if(moving->getComponent<CTransform>().position.y > stati_c->getComponent<CTransform>().position.y)
+            {
+                // => came from bottom
+                moving->getComponent<CTransform>().position.y += ol.y;
+                //moving->getComponent<CTransform>().velocity.y *= -1 ;
+            }moving->getComponent<CTransform>().velocity.y = 0;
             return;
         }
 
-        else if(ol.x > ol.y && ol.x - ol.y > epsilon)
-        {
-            if(moving->getComponent<CTransform>().prev_position.y > stati_c->getComponent<CTransform>().prev_position.y)
-            {
-                // => came from bottom
-                moving->getComponent<CTransform>().position.y += ol.y;
-            }
-            else if(moving->getComponent<CTransform>().prev_position.y < stati_c->getComponent<CTransform>().prev_position.y)
-            {
-                // => came from top
-                moving->getComponent<CTransform>().position.y += ol.y * -1;
-            }
-            return;
-        }
-        else if(prev_ol.x > prev_ol.y)
-        {
-            if(moving->getComponent<CTransform>().prev_position.y > stati_c->getComponent<CTransform>().prev_position.y)
-            {
-                // => came from bottom
-                moving->getComponent<CTransform>().position.y += ol.y;
-            }
-            else if(moving->getComponent<CTransform>().prev_position.y < stati_c->getComponent<CTransform>().prev_position.y)
-            {
-                // => came from top
-                moving->getComponent<CTransform>().position.y += ol.y * -1;
-            }
-            return;
-        }
-        else if(prev_ol.y > prev_ol.x)
-        {
-            if(moving->getComponent<CTransform>().prev_position.x > stati_c->getComponent<CTransform>().prev_position.x)
-            {
-                // => came from right
-                moving->getComponent<CTransform>().position.x += ol.x;
-            }
-            else if(moving->getComponent<CTransform>().prev_position.x < stati_c->getComponent<CTransform>().prev_position.x)
-            {
-                // => came from left
-                moving->getComponent<CTransform>().position.x += ol.x * -1;
-            }
-            return;
-        }
-        else
-        {
-            if(moving->getComponent<CTransform>().prev_position.x > stati_c->getComponent<CTransform>().prev_position.x)
-            {
-                // => came from right
-                if(moving->getComponent<CTransform>().prev_position.y > stati_c->getComponent<CTransform>().prev_position.y)
-                {
-                    // => came from bottom
-                    moving->getComponent<CTransform>().position.y += ol.y;
-                }
-                else if(moving->getComponent<CTransform>().prev_position.y < stati_c->getComponent<CTransform>().prev_position.y)
-                {
-                    // => came from top
-                    moving->getComponent<CTransform>().position.y += ol.y * -1;
-                }
-                moving->getComponent<CTransform>().position.x += ol.x * -1;
-            }
-            else if(moving->getComponent<CTransform>().prev_position.x < stati_c->getComponent<CTransform>().prev_position.x)
-            {
-                // => came from left
-                if(moving->getComponent<CTransform>().prev_position.y > stati_c->getComponent<CTransform>().prev_position.y)
-                {
-                    // => came from bottom
-                    moving->getComponent<CTransform>().position.y += ol.y;
-                }
-                else if(moving->getComponent<CTransform>().prev_position.y < stati_c->getComponent<CTransform>().prev_position.y)
-                {
-                    // => came from top
-                    moving->getComponent<CTransform>().position.y += ol.y * -1;
-                }
-                moving->getComponent<CTransform>().position.x += ol.x;
-            }
-        }
     }
 }
+

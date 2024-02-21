@@ -10,7 +10,8 @@ void Engien::init(const std::string& file_name, std::string main_scene)
 {
     m_assets.loadFromFile(file_name);
     m_window.create(sf::VideoMode(1280,720),"");
-    //m_window.setFramerateLimit(6);
+    //m_window.setKeyRepeatEnabled(false);
+    m_window.setFramerateLimit(90);
     changeScene(main_scene, std::make_shared<SceneMenu>(this));
 }
 
@@ -88,11 +89,15 @@ void Engien::sUserInput(const sf::Event& event)
         }
 }
 
+short Engien::getFps() const
+{
+    return m_fps;
+}
 
 void Engien::update()
 {
     m_delta = m_clock.restart().asSeconds();
-    m_fps = 1.f / m_delta - m_last_delta;
+    m_fps = (1.f / m_delta - m_last_delta) + 1;
     m_last_delta = m_delta;
     std::cout<<m_fps<<std::endl;
     sEvent();

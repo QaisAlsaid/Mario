@@ -13,8 +13,8 @@ private:
     void init();
     void drawGrid();
     std::vector<UIButton> m_buttons;
-    void sRender()                       override;
-    void sDoAction(const Action& action) override;
+    void sRender(const std::shared_ptr<Entity>& e) override;
+    void sDoAction(const Action& action)           override;
 private:
     sf::View m_view;
     Vec2     m_view_size = {1280, 720};

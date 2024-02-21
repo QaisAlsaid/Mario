@@ -31,6 +31,7 @@ public:
     void              run();
     void              quit();
     Assets&           getAssets();
+    short             getFps() const;
     std::shared_ptr<Scene> currentScene();
     std::shared_ptr<Scene> getScene(const std::string& name);
     sf::RenderWindow& getWindow(){return m_window;};
