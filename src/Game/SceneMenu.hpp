@@ -7,12 +7,16 @@ class SceneMenu : public Scene
 {
 public:
     SceneMenu(Engien* engien);
-    void update() override;
-
+    void update(float delta) override;
+    void handelResize(float aspect_ratio) override;
 private:
-    std::vector<UIButton> m_buttons;
     void init();
-    void sRender()                       override;
-    void sDoAction(const Action& action) override;
+    void drawGrid();
+    std::vector<UIButton> m_buttons;
+    void sRender(const std::shared_ptr<Entity>& e) override;
+    void sDoAction(const Action& action)           override;
+private:
+    sf::View m_view;
+    Vec2     m_view_size = {1280, 720};
 };
 

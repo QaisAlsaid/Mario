@@ -9,8 +9,9 @@ Engien::Engien(const std::string& file_name, std::string main_scene)
 void Engien::init(const std::string& file_name, std::string main_scene)
 {
     m_assets.loadFromFile(file_name);
-    m_window.create(sf::VideoMode(500,500),"");
-    m_window.setFramerateLimit(61);
+    m_window.create(sf::VideoMode(1280,720),"");
+    //m_window.setKeyRepeatEnabled(false);
+    m_window.setFramerateLimit(90);
     changeScene(main_scene, std::make_shared<SceneMenu>(this));
 }
 
@@ -51,39 +52,55 @@ void Engien::run()
     }
 }
 
+void Engien::handelResize()
+{
+    currentScene()->handelResize(m_window.getSize().x/m_window.getSize().y);
+}
+
 void Engien::sEvent()
 {
     sf::Event event;
     while(m_window.pollEvent(event))
     {
-
         if(event.type == sf::Event::Closed)
         {
             quit();
         }
         if(event.type == sf::Event::KeyPressed || event.type == sf::Event::KeyReleased)
         {
-            auto iter = currentScene()->getActionMap().find(event.key.code);
-            if(iter == currentScene()->getActionMap().end()) {continue;}
-            const std::string action_type = event.type == sf::Event::KeyPressed ? "START" : "END";
-            const std::string action_name = iter->second;
-            currentScene()->doAction(Action(action_name, action_type));
+            sUserInput(event);
+        }
+        if(event.type == sf::Event::Resized)
+        {
+            handelResize();
         }
     }
 }
 
 
+void Engien::sUserInput(const sf::Event& event)
+{
+        auto iter = currentScene()->getActionMap().find(event.key.code);
+        if(iter != currentScene()->getActionMap().end())
+        {
+            const std::string action_type = event.type == sf::Event::KeyPressed ? "START" : "END";
+            const std::string& action_name = currentScene()->getActionMap().at(event.key.code);
+            currentScene()->doAction(Action(action_name, action_type));
+        }
+}
+
+short Engien::getFps() const
+{
+    return m_fps;
+}
 
 void Engien::update()
 {
     m_delta = m_clock.restart().asSeconds();
-    m_fps = 1.f / m_delta - m_last_delta;
+    m_fps = (1.f / m_delta - m_last_delta) + 1;
     m_last_delta = m_delta;
     std::cout<<m_fps<<std::endl;
     sEvent();
-    for(auto& x : getAssets().getAnimations())
-    {
-        x.second.update(m_delta);
-    }
-    currentScene()->update();
+    currentScene()->update(m_delta);
 }
+

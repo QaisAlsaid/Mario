@@ -36,6 +36,7 @@ namespace kr
             float dist(const Vec2& other) const;
             float angle() const;
             float angleDeg() const;
+            Vec2  abs();
 
 		};
 }

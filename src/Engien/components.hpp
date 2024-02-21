@@ -21,6 +21,7 @@ public:
     Vec2 scale         = {1, 1};
     Vec2 velocity      = {0, 0};
     float angle        = 0;
+    bool  isRight      = true;
     CTransform() {};
     CTransform(const Vec2& pos) : position(pos) {}
     CTransform(const Vec2& pos, const Vec2& scale, const Vec2& velocity)
@@ -32,11 +33,11 @@ public:
 class CLifespan : public Component
 {
 public:
-    size_t life_span      = 0;
-    size_t creation_frame = 0;
+    float life_span = 0;
+    float remaining = 0;
     CLifespan() {}
-    CLifespan(size_t duration, size_t frame)
-        : life_span(duration), creation_frame(frame) {}
+    CLifespan(float duration)
+        : life_span(duration), remaining(duration) {}
 
 };
 
@@ -74,7 +75,7 @@ public:
     bool repeat = false;
     CAnimation() {}
     CAnimation(const Animation& animation, bool repeat) : animation(animation), repeat(repeat)
-    {}
+    {this->animation.setRepeated(repeat);}
 };
 
 
@@ -90,7 +91,8 @@ public:
 class CState : public Component
 {
 public:
-    std::string state = "idle";
+    bool        changed = false;
+    std::string state   = "idle";
     CState() {}
     CState(const std::string& state) : state(state) {}
 };

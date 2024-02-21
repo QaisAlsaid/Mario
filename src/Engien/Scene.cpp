@@ -10,7 +10,7 @@ void Scene::simulate(int count)
 {
     for(int i = 0; i < count; i++)
     {
-        update();
+        update(m_delta);
     }
 }
 

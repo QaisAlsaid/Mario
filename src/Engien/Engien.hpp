@@ -23,14 +23,15 @@ private:
 private:
     void              init(const std::string& file_name, std::string main_scene);
     void              update();
-    void              sUserInput();
+    void              sUserInput(const sf::Event& event);
     void              sEvent();
-
+    void              handelResize();
 public:
     Engien(const std::string& file_name, std::string main_scene);
     void              run();
     void              quit();
     Assets&           getAssets();
+    short             getFps() const;
     std::shared_ptr<Scene> currentScene();
     std::shared_ptr<Scene> getScene(const std::string& name);
     sf::RenderWindow& getWindow(){return m_window;};

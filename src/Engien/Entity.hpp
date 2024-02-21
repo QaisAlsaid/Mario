@@ -65,6 +65,6 @@ public:
     template<typename T>
     void removeComponent()
     {
-        getComponent<T> = T();
+        getComponent<T>() = T();
     }
 };

@@ -148,3 +148,8 @@ float Vec2::angleDeg() const
     return std::atan2(y, x) * 180 / pi;
 }
 
+Vec2 Vec2::abs()
+{
+    return Vec2(std::abs(x), std::abs(y));
+}
+

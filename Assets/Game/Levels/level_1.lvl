@@ -1,0 +1,29 @@
+Player 5 3 44 48 350 980 650 player_idel
+repeat i 1 30
+Tile ublock 0 n 1 i 60 60
+repeat i 1 5
+Tile ground 1 i 1 n 60 60
+Camera 5 500 1 1
+Tile stairs 5 2 60 60
+Tile stairs 6 3 60 60
+Tile stairs 7 4 60 60
+Tile stairs 8 5 60 60
+Tile stairs 9 6 60 60
+Tile stairs 10 7 60 60
+Tile stairs 11 8 60 60
+Tile stairs 12 9 60 60
+Tile stairs 13 10 60 60
+Tile stairs 14 11 60 60
+repeat i 15 34
+Tile ground 1 i 11 n 60 60
+Tile stairs 36 12 60 60
+Tile stairs 37 13 60 60
+Tile stairs 38 14 60 60
+Tile stairs 39 15 60 60
+Tile stairs 40 16 60 60
+Tile stairs 41 17 60 60
+Tile stairs 42 18 60 60
+Tile stairs 43 19 60 60
+repeat i 1 44
+Tile ground 1 i 21 n 60 60
+Tile qblock 7 24 60 60
